@@ -11,6 +11,7 @@ class BdVacinacaoOpenHelper(context: Context?)
         if (db != null) {
             TabelaPaciente(db).cria()
             TabelaVacina(db).cria()
+            TabelaFicha(db).cria()
         }
     }
 
