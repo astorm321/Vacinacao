@@ -1,24 +1,24 @@
 # Vacinação
 
-<p> Este projeto consiste em criar uma aplicaçao movel onde as organizaçoes de saude podem guardar os dados sobre a vacinaçao da populaçao onde 
-criam uma ficha pessoal do paciente na qual guardam os dados pessoais , onde tem tambem as vacinas que existem no mercado, e no fim tem os dados 
-de quando o paciente levou a vacina qual vacina anotando as horas e o dia e tambem quantas vacinas o paciente ja levou. </p>
+<p> Este projeto consiste em criar uma aplicaçao móvel onde as organizações de saúde podem armazenar os dados sobre a vacinação da populaçao 
+criando uma ficha do paciente na qual guardam os dados pessoais e relevantes , onde têm as vacinas existentes no mercado, por fim resulta numa tabela com a compilação de todos os dados
+relativos à vacinação . </p>
 
 ## Os Objetivos aplicação :checkered_flag:
 
 :trophy:-Ter uma tabela com os dados todos do paciente
 
-:trophy:-Ter uma tabela com a informaçao da vacina (Fabricante origem validade efeitos secundarios )
+:trophy:-Ter uma tabela com a informação da vacina (Fabricante origem validade efeitos secundários )
 
-:trophy:Ter uma tabela com os dados todos organizados com o Nome do paciente ( um ID tambem ) , o ID da vacina , o dia e hora em que tomou a primeira dose 
-	      o dia e hora da segunda dose ( caso a vacina seja de duas doses ) e incluindo tambem se for o caso os efeitos que a vacina teve no paciente
+:trophy:Ter uma tabela com os dados organizados, com o Nome do paciente ( um ID tambem ) , o ID da vacina , o dia e hora em que tomou a primeira dose 
+	      o dia e hora da segunda dose ( caso a vacina seja de duas doses ) e incluindo também se for o caso os efeitos que a vacina teve no paciente
 
 
 > Status do Projeto: Em desenvolvimento :warning:
 
 ### Lista de funcionalidades
   - Dados do paciente ( com as operações CRUD ) / Mostrar os dados do paciente 
-  ( ID, Nome , Morada , Contacto , Idade , nr de utente , altura , peso , faixa etaria , profissao , alguma doença que seja relevante ou historico da familia)
+  ( ID, Nome , Morada , Contacto , Idade , nr de utente , altura , peso , faixa etaria , profissao , alguma doença que seja relevante ou histórico da familia)
  
   - Dados da vacina (com as operações CRUD ) / Mostrar os dados da vacina 
   ( ID , Nome da vacina , fabricante da vacina , validade da vacina , Doses necessarias , quantas vacinas ainda estao disponiveis)
