@@ -9,7 +9,7 @@ class TabelaPaciente (db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
     fun cria(){
         db.execSQL(
-                "CREATE TABLE $NOME_TABELA (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_MORADA TEXT NOT NULL ,$CAMPO_CONTACTO TEXT NOT NULL UNIQUE, $CAMPO_IDADE TEXT NOT NULL UNIQUE,$CAMPO_NR_UTENTE TEXT NOT NULL , $CAMPO_ALTURA TEXT NOT NULL,$CAMPO_PESO TEXT NOT NULL ,$CAMPO_FAIXA_ETARIA TEXT NOT NULL,$CAMPO_PROFISSAO TEXT NOT NULL, $CAMPO_HISTORICO TEXT NOT NULL)")
+                "CREATE TABLE $NOME_TABELA (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT, $CAMPO_MORADA TEXT NOT NULL ,$CAMPO_CONTACTO NUMERIC NOT NULL UNIQUE, $CAMPO_IDADE NUMERIC NOT NULL UNIQUE,$CAMPO_NR_UTENTE NUMERIC NOT NULL , $CAMPO_ALTURA NUMERIC NOT NULL,$CAMPO_PESO NUMERIC NOT NULL ,$NOME_PACIENTE TEXT NOT NULL , $CAMPO_PROFISSAO TEXT NOT NULL, $CAMPO_HISTORICO TEXT NOT NULL)")
     }
 
     fun insert(values: ContentValues): Long {
@@ -37,13 +37,13 @@ class TabelaPaciente (db: SQLiteDatabase) {
 
     companion object {
         const val NOME_TABELA = "Paciente"
+        const val NOME_PACIENTE ="Nome_Paciente"  //falta o nome
         const val CAMPO_MORADA ="Morada"
         const val CAMPO_CONTACTO ="Contacto"
         const val CAMPO_IDADE = "Idade"
         const val CAMPO_NR_UTENTE ="NrUtente"
         const val CAMPO_ALTURA ="Altura"
         const val CAMPO_PESO ="Peso"
-        const val CAMPO_FAIXA_ETARIA="FaixaEtaria"
         const val CAMPO_PROFISSAO ="Profissão"
         const val CAMPO_HISTORICO ="HistoricoMedico"
 

@@ -22,7 +22,7 @@ class BdVacinacaoOpenHelper(context: Context?)
 
 
     companion object {
-        const val NOME_BASE_DADOS = "livros.db"
+        const val NOME_BASE_DADOS = "Vacinacao.db"
         const val VERSAO_BASE_DADOS = 1
     }
 }
