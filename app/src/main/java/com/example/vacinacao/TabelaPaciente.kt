@@ -44,7 +44,7 @@ class TabelaPaciente (db: SQLiteDatabase) {
         const val CAMPO_ALTURA ="Altura"
         const val CAMPO_PESO ="Peso"
         const val CAMPO_DATA_NASCIMENTO ="Data_Nascimento"
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, NOME_PACIENTE)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, NOME_PACIENTE , CAMPO_MORADA , CAMPO_CONTACTO, CAMPO_NR_UTENTE, CAMPO_ALTURA , CAMPO_PESO , CAMPO_DATA_NASCIMENTO)
 
     }
 }
