@@ -134,7 +134,7 @@ class TesteBaseDados {
     }
 
     @Test
-    fun consegueLerCategorias() {
+    fun consegueLerPaciente() {
         val db = getBdVacinacaoOpenHelper().writableDatabase
         val tabelaPaciente = TabelaPaciente(db)
 
