@@ -7,8 +7,17 @@ import java.util.*
 
 data class Paciente (var id: Long = -1 , var nome: String , var morada: String, var contacto: Long , var NrUtente: Long , var altura: Long, var peso: Long, var DataNascimento: Long ) {
     fun toContentValues(): ContentValues {
-        val valores = ContentValues()
-        valores.put(TabelaPaciente.NOME_PACIENTE, nome)
+        val valores = ContentValues().apply {
+            put(TabelaPaciente.NOME_PACIENTE, nome)
+            put(TabelaPaciente.CAMPO_MORADA, morada)
+            put(TabelaPaciente.CAMPO_CONTACTO, contacto)
+            put(TabelaPaciente.CAMPO_NR_UTENTE, NrUtente)
+            put(TabelaPaciente.CAMPO_ALTURA, altura)
+            put(TabelaPaciente.CAMPO_PESO, peso)
+            put(TabelaPaciente.CAMPO_DATA_NASCIMENTO, DataNascimento)
+
+
+        }
         return valores
     }
 
