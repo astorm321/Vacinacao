@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.provider.BaseColumns
 import java.util.*
 
-data class Paciente (var id: Long = -1 , var nome: String , var morada: String, var contacto: Long , var NrUtente: Long , var altura: Long, var peso: Long, var DataNascimento: Long ) {
+data class Paciente (var id: Long = -1 , var nome: String , var morada: String, var contacto: String , var NrUtente: String , var altura: String , var peso: String, var DataNascimento: String ) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaPaciente.NOME_PACIENTE, nome)
@@ -38,11 +38,11 @@ data class Paciente (var id: Long = -1 , var nome: String , var morada: String, 
             val id = cursor.getLong(colId)
             val nome = cursor.getString(colNome)
             val morada = cursor.getString(colMorada)
-            val contacto = cursor.getLong(colContacto)
-            val NrUtente = cursor.getLong(colNrUtente)
-            val altura = cursor.getLong(colAltura)
-            val peso = cursor.getLong(colPeso)
-            val DataNascimento = cursor.getLong(colDataNascimento)
+            val contacto = cursor.getString(colContacto)
+            val NrUtente = cursor.getString(colNrUtente)
+            val altura = cursor.getString(colAltura)
+            val peso = cursor.getString(colPeso)
+            val DataNascimento = cursor.getString(colDataNascimento)
 
             return Paciente(id, nome , morada , contacto , NrUtente , altura , peso , DataNascimento)
         }

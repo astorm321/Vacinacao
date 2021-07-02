@@ -58,8 +58,48 @@ class TesteBaseDados {
         val db = getBdVacinacaoOpenHelper().writableDatabase
         val tabelaPaciente = TabelaPaciente(db)
 
-        val paciente = Paciente(nome = "Drama")
+        val paciente = Paciente(
+            nome = "Jose" ,
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+
+            )
         paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        assertEquals(paciente, getPacienteBaseDados(tabelaPaciente, paciente.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueAlterarPaciente() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+        val tabelaPaciente = TabelaPaciente(db)
+
+        val paciente = Paciente(
+            nome = "Jose" ,
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        paciente.nome = "Joao"
+
+        val registosAlterados = tabelaPaciente.update(
+            paciente.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(paciente.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
 
         assertEquals(paciente, getPacienteBaseDados(tabelaPaciente, paciente.id))
 
