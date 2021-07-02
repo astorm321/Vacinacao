@@ -105,4 +105,31 @@ class TesteBaseDados {
 
         db.close()
     }
+
+    @Test
+    fun consegueEliminarPaciente() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+        val tabelaPaciente = TabelaPaciente(db)
+
+        val paciente = Paciente(
+            nome = "Fernando",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+
+        )
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val registosEliminados = tabelaPaciente.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(paciente.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
 }
