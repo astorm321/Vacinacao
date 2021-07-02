@@ -294,6 +294,7 @@ class TesteBaseDados {
             peso ="70",
             DataNascimento = "16/12/1996"
         )
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
 
         val tabelaVacina = TabelaVacina(db)
         val vacina = Vacina(
@@ -302,7 +303,6 @@ class TesteBaseDados {
             validade = "20/12/2022" ,
             dose = "2"
         )
-        paciente.id = inserePaciente(tabelaPaciente, paciente)
         vacina.id = insereVacina(tabelaVacina, vacina)
 
         val tabelaFicha = TabelaFicha(db)
@@ -320,4 +320,65 @@ class TesteBaseDados {
 
         db.close()
     }
+
+    @Test
+    fun consegueAlterarFicha() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+
+        val tabelaPaciente = TabelaPaciente(db)
+
+        val pacienteJoao = Paciente(
+            nome = "Joao",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+        pacienteJoao.id = inserePaciente(tabelaPaciente, pacienteJoao)
+
+        val pacienteFernando = Paciente(
+            nome = "Fernando",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+        pacienteFernando.id = inserePaciente(tabelaPaciente, pacienteFernando)
+
+
+
+        val tabelaFicha = TabelaFicha(db)
+        val ficha = Ficha(
+            data = "?",
+            hora = "?",
+            efeitos ="?",
+            idPaciente = pacienteJoao.id,
+            nomePaciente = pacienteJoao.nome,
+            idVacina = vacina.id
+            nomeCategoria = categoriaSuspense.nome // necessário apenas nos testes
+        )
+        livro.id = insereLivro(tabelaLivros, livro)
+
+        livro.titulo = "Ninfeias negras"
+        livro.autor = "Michel Bussi"
+        livro.idCategoria = categoriaMisterio.id
+        livro.nomeCategoria = categoriaMisterio.nome // só é necessário nos testes
+
+        val registosAlterados = tabelaLivros.update(
+            livro.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(livro.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+        assertEquals(livro, getLivroBaseDados(tabelaLivros, livro.id))
+
+        db.close()
+    }
+
 }

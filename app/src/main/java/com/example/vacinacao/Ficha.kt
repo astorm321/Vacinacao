@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class Ficha (var id: Long = -1, var data: String , var hora: String , var efeitos: String , var idPaciente: Long , var idVacina: Long) {
+data class Ficha (var id: Long = -1, var data: String , var hora: String , var efeitos: String , var idPaciente: Long , var idVacina: Long , var nomePaciente: String? = null , var nomeVacina: String? = null) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaFicha.CAMPO_DATA, data)
@@ -26,6 +26,8 @@ data class Ficha (var id: Long = -1, var data: String , var hora: String , var e
             val colEfeitos = cursor.getColumnIndex(TabelaFicha.CAMPO_EFEITOS)
             val colIdPaciente = cursor.getColumnIndex(TabelaFicha.CAMPO_ID_PACIENTE)
             val colIdVacina = cursor.getColumnIndex(TabelaFicha.CAMPO_ID_VACINA)
+            val colNomePaci = cursor.getColumnIndex(TabelaFicha.CAMPO_EXTERNO_NOME_PACIENTE)
+            val colNomeVaci = cursor.getColumnIndex(TabelaFicha.CAMPO_EXTERNO_NOME_VACINA)
 
 
             val id = cursor.getLong(colId)
@@ -34,9 +36,11 @@ data class Ficha (var id: Long = -1, var data: String , var hora: String , var e
             val efeitos = cursor.getString(colEfeitos)
             val idPaciente = cursor.getLong(colIdPaciente)
             val idVacina = cursor.getLong(colIdVacina)
+            val nomePaciente = if (colNomePaci!= -1) cursor.getString(colNomePaci) else null
+            val nomeVacina = if (colNomeVaci!= -1) cursor.getString(colNomeVaci) else null
 
 
-            return Ficha (id, data, hora, efeitos, idPaciente, idVacina)
+            return Ficha (id, data, hora, efeitos, idPaciente, idVacina , nomePaciente , nomeVacina)
         }
     }
 }
