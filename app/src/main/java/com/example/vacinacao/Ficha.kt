@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class Ficha (var id: Long = -1, var data: Long , var hora: Long , var efeitos: String , var idPaciente: Long , var nomeVacina: String){
+data class Ficha (var id: Long = -1, var data: Long , var hora: Long , var efeitos: String , var idPaciente: Long , var nomeVacina: String) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaFicha.CAMPO_DATA, data)
@@ -14,14 +14,12 @@ data class Ficha (var id: Long = -1, var data: Long , var hora: Long , var efeit
             put(TabelaFicha.CAMPO_NOME_VACINA, nomeVacina)
 
 
-
-
         }
         return valores
     }
 
     companion object {
-        fun fromCursor(cursor: Cursor): Paciente {
+        fun fromCursor(cursor: Cursor): Ficha {
             val colId = cursor.getColumnIndex(BaseColumns._ID)
             val colData = cursor.getColumnIndex(TabelaFicha.CAMPO_DATA)
             val colHora = cursor.getColumnIndex(TabelaFicha.CAMPO_HORA)
@@ -30,17 +28,15 @@ data class Ficha (var id: Long = -1, var data: Long , var hora: Long , var efeit
             val colNomeVacina = cursor.getColumnIndex(TabelaFicha.CAMPO_NOME_VACINA)
 
 
-
-
-
             val id = cursor.getLong(colId)
-            val data = cursor.getString(colData)
-            val hora = cursor.getString(colHora)
-            val efeitos = cursor.getLong(colEfeitos)
+            val data = cursor.getLong(colData)
+            val hora = cursor.getLong(colHora)
+            val efeitos = cursor.getString(colEfeitos)
             val idPaciente = cursor.getLong(colIdPaciente)
-            val nomeVacina = cursor.getLong(colNomeVacina)
+            val nomeVacina = cursor.getString(colNomeVacina)
 
 
-            return Paciente(id, data , hora , efeitos , idPaciente , nomeVacina )
+            return Ficha (id, data, hora, efeitos, idPaciente, nomeVacina)
         }
+    }
 }
