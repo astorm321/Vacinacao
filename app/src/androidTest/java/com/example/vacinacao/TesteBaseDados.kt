@@ -219,5 +219,28 @@ class TesteBaseDados {
 
         db.close()
     }
+    @Test
+    fun consegueEliminarVacina() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+        val tabelaVacina = TabelaVacina(db)
+
+        val vacina = Vacina(
+            nomeVacina = "BioNtech" ,
+            fabricante = "Pfizer",
+            validade = "20/12/2022" ,
+            dose = "2"
+
+        )
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val registosEliminados = tabelaVacina.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(vacina.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+
+        db.close()
+    }
 
 }
