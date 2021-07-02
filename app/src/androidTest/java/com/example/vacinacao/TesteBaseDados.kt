@@ -132,4 +132,25 @@ class TesteBaseDados {
 
         db.close()
     }
+
+    @Test
+    fun consegueLerCategorias() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+        val tabelaPaciente = TabelaPaciente(db)
+
+        val paciente = Paciente(
+            nome = "Antonio",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        assertEquals(paciente, getPacienteBaseDados(tabelaPaciente, paciente.id))
+
+        db.close()
+    }
 }
