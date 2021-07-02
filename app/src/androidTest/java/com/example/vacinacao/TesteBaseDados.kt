@@ -27,6 +27,13 @@ class TesteBaseDados {
         return id
     }
 
+    private fun insereVacina(tabela: TabelaVacina, vacina: Vacina): Long {
+        val id = tabela.insert(vacina.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
     private fun getPacienteBaseDados(tabela: TabelaPaciente, id: Long): Paciente {
         val cursor = tabela.query(
             TabelaPaciente.TODAS_COLUNAS,
@@ -38,6 +45,19 @@ class TesteBaseDados {
         assert(cursor!!.moveToNext())
 
         return Paciente.fromCursor(cursor)
+    }
+
+    private fun getVacinaBaseDados(tabela: TabelaVacina, id: Long): Vacina {
+        val cursor = tabela.query(
+            TabelaVacina.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Vacina.fromCursor(cursor)
     }
 
 
@@ -153,4 +173,23 @@ class TesteBaseDados {
 
         db.close()
     }
+
+    @Test
+    fun consegueInserirVacina() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+        val tabelaVacina = TabelaVacina(db)
+
+        val vacina = Vacina(
+            nomeVacina = "BioNtech" ,
+            fabricante = "Pfizer",
+            validade = "20/12/2022" ,
+            dose = "2"
+        )
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
+
+        db.close()
+    }
+
 }
