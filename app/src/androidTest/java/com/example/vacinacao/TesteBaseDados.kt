@@ -34,6 +34,13 @@ class TesteBaseDados {
         return id
     }
 
+    private fun insereFicha(tabela: TabelaFicha, ficha: Ficha): Long {
+        val id = tabela.insert(ficha.toContentValues())
+        assertNotEquals(-1, id)
+
+        return id
+    }
+
     private fun getPacienteBaseDados(tabela: TabelaPaciente, id: Long): Paciente {
         val cursor = tabela.query(
             TabelaPaciente.TODAS_COLUNAS,
@@ -60,6 +67,18 @@ class TesteBaseDados {
         return Vacina.fromCursor(cursor)
     }
 
+    private fun getFichaBaseDados(tabela: TabelaFicha, id: Long): Ficha {
+        val cursor = tabela.query(
+            TabelaFicha.TODAS_COLUNAS,
+            "${BaseColumns._ID}=?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+        assertNotNull(cursor)
+        assert(cursor!!.moveToNext())
+
+        return Ficha.fromCursor(cursor)
+    }
 
         @Before
     fun apagaBaseDados() {
@@ -243,4 +262,62 @@ class TesteBaseDados {
         db.close()
     }
 
+    @Test
+    fun consegueLerVacina() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+        val tabelaVacina = TabelaVacina(db)
+
+        val vacina = Vacina(
+            nomeVacina = "BioNtech" ,
+            fabricante = "Pfizer",
+            validade = "20/12/2022" ,
+            dose = "2"
+        )
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        assertEquals(vacina, getVacinaBaseDados(tabelaVacina, vacina.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueInserirFicha() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(
+            nome = "Antonio",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(
+            nomeVacina = "BioNtech" ,
+            fabricante = "Pfizer",
+            validade = "20/12/2022" ,
+            dose = "2"
+        )
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val tabelaFicha = TabelaFicha(db)
+        val ficha = Ficha(
+            data = "20/12/2020",
+            hora = "17:55",
+            efeitos ="Dor de Cabeça",
+            idPaciente = paciente.id,
+            idVacina = vacina.id
+
+        )
+        ficha.id = insereFicha(tabelaFicha, ficha)
+
+        assertEquals(ficha, getFichaBaseDados(tabelaFicha, ficha.id))
+
+        db.close()
+    }
 }

@@ -43,7 +43,7 @@ class TabelaFicha(db: SQLiteDatabase) {
         const val CAMPO_ID_VACINA ="id_vacina"
 
 
-       // val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_NOME)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_DATA, CAMPO_HORA , CAMPO_EFEITOS , CAMPO_ID_PACIENTE , CAMPO_ID_VACINA)
     }
 
 }

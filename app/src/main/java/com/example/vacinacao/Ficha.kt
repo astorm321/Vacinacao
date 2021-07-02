@@ -4,7 +4,7 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.provider.BaseColumns
 
-data class Ficha (var id: Long = -1, var data: Long , var hora: Long , var efeitos: String , var idPaciente: Long , var idVacina: Long) {
+data class Ficha (var id: Long = -1, var data: String , var hora: String , var efeitos: String , var idPaciente: Long , var idVacina: Long) {
     fun toContentValues(): ContentValues {
         val valores = ContentValues().apply {
             put(TabelaFicha.CAMPO_DATA, data)
@@ -29,8 +29,8 @@ data class Ficha (var id: Long = -1, var data: Long , var hora: Long , var efeit
 
 
             val id = cursor.getLong(colId)
-            val data = cursor.getLong(colData)
-            val hora = cursor.getLong(colHora)
+            val data = cursor.getString(colData)
+            val hora = cursor.getString(colHora)
             val efeitos = cursor.getString(colEfeitos)
             val idPaciente = cursor.getLong(colIdPaciente)
             val idVacina = cursor.getLong(colIdVacina)
