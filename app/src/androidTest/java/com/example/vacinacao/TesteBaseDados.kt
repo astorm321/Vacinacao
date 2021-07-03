@@ -395,7 +395,7 @@ class TesteBaseDados {
             arrayOf(ficha.id.toString())
         )
 
-        assertEquals(2, registosAlterados)
+        assertEquals(1, registosAlterados)
 
         assertEquals(ficha, getFichaBaseDados(tabelaFicha, ficha.id))
 
@@ -434,9 +434,9 @@ class TesteBaseDados {
             hora = "17:55",
             efeitos ="Dor de Cabeça",
             idPaciente = paciente.id,
-            nomePaciente = paciente.nome,
+            //nomePaciente = paciente.nome,
             idVacina = vacina.id ,
-            nomeVacina = vacina.nomeVacina
+            //nomeVacina = vacina.nomeVacina
 
 
         )
@@ -448,6 +448,49 @@ class TesteBaseDados {
         )
 
         assertEquals(1, registosEliminados)
+
+        db.close()
+    }
+
+    @Test
+    fun consegueLerFicha() {
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(
+            nome = "Antonio",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(
+            nomeVacina = "BioNtech" ,
+            fabricante = "Pfizer",
+            validade = "20/12/2022" ,
+            dose = "2"
+        )
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val tabelaFicha = TabelaFicha(db)
+        val ficha = Ficha(
+            data = "20/12/2020",
+            hora = "17:55",
+            efeitos ="Dor de Cabeça",
+            idPaciente = paciente.id,
+            //nomePaciente = paciente.nome,
+            idVacina = vacina.id ,
+            //nomeVacina = vacina.nomeVacina
+
+        )
+        ficha.id = insereFicha(tabelaFicha, ficha)
+
+        assertEquals(ficha, getFichaBaseDados(tabelaFicha, ficha.id))
 
         db.close()
     }
