@@ -338,6 +338,7 @@ class TesteBaseDados {
         )
         pacienteJoao.id = inserePaciente(tabelaPaciente, pacienteJoao)
 
+
         val pacienteFernando = Paciente(
             nome = "Fernando",
             morada = "Rua Das Flores",
@@ -349,6 +350,23 @@ class TesteBaseDados {
         )
         pacienteFernando.id = inserePaciente(tabelaPaciente, pacienteFernando)
 
+        val tabelaVacina = TabelaVacina(db)
+        val vacinaBio = Vacina(
+            nomeVacina = "BioNtech" ,
+            fabricante = "Pfizer",
+            validade = "20/12/2022" ,
+            dose = "2"
+        )
+        vacinaBio.id = insereVacina(tabelaVacina, vacinaBio)
+
+        val vacinaJhon = Vacina(
+            nomeVacina = "Jhonson" ,
+            fabricante = "Jhonson&Jhonson",
+            validade = "20/12/2023" ,
+            dose = "3"
+        )
+        vacinaJhon.id = insereVacina(tabelaVacina, vacinaJhon)
+
 
 
         val tabelaFicha = TabelaFicha(db)
@@ -358,25 +376,78 @@ class TesteBaseDados {
             efeitos ="?",
             idPaciente = pacienteJoao.id,
             nomePaciente = pacienteJoao.nome,
-            idVacina = vacina.id
-            nomeCategoria = categoriaSuspense.nome // necessário apenas nos testes
+            idVacina = vacinaBio.id,
+            nomeVacina = vacinaBio.nomeVacina
+
         )
-        livro.id = insereLivro(tabelaLivros, livro)
+        ficha.id = insereFicha(tabelaFicha,ficha)
 
-        livro.titulo = "Ninfeias negras"
-        livro.autor = "Michel Bussi"
-        livro.idCategoria = categoriaMisterio.id
-        livro.nomeCategoria = categoriaMisterio.nome // só é necessário nos testes
-
-        val registosAlterados = tabelaLivros.update(
-            livro.toContentValues(),
+        ficha.data = "12/12/2020"
+        ficha.hora = "15:45"
+        ficha.efeitos = "Nenhum"
+        ficha.idPaciente = pacienteFernando.id
+        ficha.nomePaciente = pacienteFernando.nome
+        ficha.idVacina = vacinaJhon.id
+        ficha.nomeVacina = vacinaJhon.nomeVacina
+        val registosAlterados = tabelaFicha.update(
+            ficha.toContentValues(),
             "${BaseColumns._ID}=?",
-            arrayOf(livro.id.toString())
+            arrayOf(ficha.id.toString())
         )
 
-        assertEquals(1, registosAlterados)
+        assertEquals(2, registosAlterados)
 
-        assertEquals(livro, getLivroBaseDados(tabelaLivros, livro.id))
+        assertEquals(ficha, getFichaBaseDados(tabelaFicha, ficha.id))
+
+        db.close()
+    }
+
+    @Test
+    fun consegueEliminarFicha() {
+
+        val db = getBdVacinacaoOpenHelper().writableDatabase
+
+        val tabelaPaciente = TabelaPaciente(db)
+        val paciente = Paciente(
+            nome = "Antonio",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+        paciente.id = inserePaciente(tabelaPaciente, paciente)
+
+        val tabelaVacina = TabelaVacina(db)
+        val vacina = Vacina(
+            nomeVacina = "BioNtech" ,
+            fabricante = "Pfizer",
+            validade = "20/12/2022" ,
+            dose = "2"
+        )
+        vacina.id = insereVacina(tabelaVacina, vacina)
+
+        val tabelaFicha = TabelaFicha(db)
+        val ficha = Ficha(
+            data = "20/12/2020",
+            hora = "17:55",
+            efeitos ="Dor de Cabeça",
+            idPaciente = paciente.id,
+            nomePaciente = paciente.nome,
+            idVacina = vacina.id ,
+            nomeVacina = vacina.nomeVacina
+
+
+        )
+        ficha.id = insereFicha(tabelaFicha, ficha)
+
+        val registosEliminados = tabelaFicha.delete(
+            "${BaseColumns._ID}=?",
+            arrayOf(ficha.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
 
         db.close()
     }
