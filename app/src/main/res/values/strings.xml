@@ -15,4 +15,10 @@
     <string name="paciente">Paciente:</string>
     <string name="hora">Hora:</string>
     <string name="efeitos">Efeitos:</string>
+    <string name="ficha_vacina_o">Ficha Vacinação</string>
+    <string name="nome_paciente">Nome Paciente</string>
+    <string name="Data">Data</string>
+    <string name="Hora">Hora</string>
+    <string name="Eefeitos">Efeitos</string>
+    <string name="Vacina">Vacina</string>
 </resources>

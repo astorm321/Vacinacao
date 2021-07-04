@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:text="Ficha Vacinação"
+        android:text="@string/ficha_vacina_o"
         android:textSize="34sp" />
 
     <TextView
