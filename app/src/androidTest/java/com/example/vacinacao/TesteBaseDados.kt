@@ -285,6 +285,18 @@ class TesteBaseDados {
         val db = getBdVacinacaoOpenHelper().writableDatabase
 
         val tabelaPaciente = TabelaPaciente(db)
+        val pacienteJoao = Paciente(
+            nome = "Joao",
+            morada = "Rua Das Flores",
+            contacto = "963493871" ,
+            NrUtente = "222222222",
+            altura = "128",
+            peso ="70",
+            DataNascimento = "16/12/1996"
+        )
+        pacienteJoao.id = inserePaciente(tabelaPaciente, pacienteJoao)
+
+        /*val tabelaPaciente = TabelaPaciente(db)
         val paciente = Paciente(
             nome = "Antonio",
             morada = "Rua Das Flores",
@@ -295,7 +307,7 @@ class TesteBaseDados {
             DataNascimento = "16/12/1996"
         )
         paciente.id = inserePaciente(tabelaPaciente, paciente)
-
+*/
         val tabelaVacina = TabelaVacina(db)
         val vacina = Vacina(
             nomeVacina = "BioNtech" ,
@@ -310,7 +322,7 @@ class TesteBaseDados {
             data = "20/12/2020",
             hora = "17:55",
             efeitos ="Dor de Cabeça",
-            idPaciente = paciente.id,
+            idPaciente = pacienteJoao.id,
             idVacina = vacina.id
 
         )
@@ -326,7 +338,6 @@ class TesteBaseDados {
         val db = getBdVacinacaoOpenHelper().writableDatabase
 
         val tabelaPaciente = TabelaPaciente(db)
-
         val pacienteJoao = Paciente(
             nome = "Joao",
             morada = "Rua Das Flores",
@@ -340,8 +351,8 @@ class TesteBaseDados {
 
 
         val pacienteFernando = Paciente(
-            nome = "Fernando",
-            morada = "Rua Das Flores",
+            nome = "Fero",
+            morada = "Rua Das",
             contacto = "963493871" ,
             NrUtente = "222222222",
             altura = "128",
@@ -375,9 +386,9 @@ class TesteBaseDados {
             hora = "?",
             efeitos ="?",
             idPaciente = pacienteJoao.id,
-            nomePaciente = pacienteJoao.nome,
+            //nomePaciente = pacienteJoao.nome,
             idVacina = vacinaBio.id,
-            nomeVacina = vacinaBio.nomeVacina
+            //nomeVacina = vacinaBio.nomeVacina
 
         )
         ficha.id = insereFicha(tabelaFicha,ficha)
@@ -386,9 +397,9 @@ class TesteBaseDados {
         ficha.hora = "15:45"
         ficha.efeitos = "Nenhum"
         ficha.idPaciente = pacienteFernando.id
-        ficha.nomePaciente = pacienteFernando.nome
+        //ficha.nomePaciente = pacienteFernando.nome
         ficha.idVacina = vacinaJhon.id
-        ficha.nomeVacina = vacinaJhon.nomeVacina
+        //ficha.nomeVacina = vacinaJhon.nomeVacina
         val registosAlterados = tabelaFicha.update(
             ficha.toContentValues(),
             "${BaseColumns._ID}=?",

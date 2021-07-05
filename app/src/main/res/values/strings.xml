@@ -26,9 +26,11 @@
     <string name="nome_vacina">Nome Vacina</string>
     <string name="novo_livro">novo_livro</string>
     <string name="alterar_livro">alterar_livro</string>
-    <string name="eliminar_ficha">eliminar_ficha</string>
+
     <string name="action_setings">action_settings</string>
-    <string name="eliminar_ficha">eliminar_ficha</string>
+
     <string name="edita_ficha">edita_ficha</string>
+    <string name="eliminar_ficha">eliminar_ficha</string>
+    <string name="cancelar_ficha">cancelar_ficha</string>
 
 </resources>
