@@ -12,6 +12,7 @@ data class Ficha (var id: Long = -1, var data: String , var hora: String , var e
             put(TabelaFicha.CAMPO_EFEITOS, efeitos)
             put(TabelaFicha.CAMPO_ID_PACIENTE, idPaciente)
             put(TabelaFicha.CAMPO_ID_VACINA, idVacina)
+            //put(TabelaFicha.CAMPO_EXTERNO_NOME_PACIENTE, nomePaciente)
 
 
         }
@@ -40,7 +41,7 @@ data class Ficha (var id: Long = -1, var data: String , var hora: String , var e
             val nomeVacina = if (colNomeVaci!= -1) cursor.getString(colNomeVaci) else null
 
 
-            return Ficha (id, data, hora, efeitos, idPaciente, idVacina , nomePaciente , nomeVacina)
+            return Ficha (id, data, hora, efeitos, idPaciente , idVacina , nomePaciente , nomeVacina)
         }
     }
 }

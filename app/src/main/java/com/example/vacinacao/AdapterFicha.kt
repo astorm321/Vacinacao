@@ -18,7 +18,7 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
         View.OnClickListener {
         private val textViewPaciente = itemView.findViewById<TextView>(R.id.textViewPaciente)
         private val textViewVacina = itemView.findViewById<TextView>(R.id.textViewVacina)
-        private val textViewData = itemView.findViewById<TextView>(R.id.textViewData)
+        private val textViewData = itemView.findViewById<TextView>(R.id.textViewData1)
         private val textViewHora = itemView.findViewById<TextView>(R.id.textViewHora)
         private val textViewEfeitos = itemView.findViewById<TextView>(R.id.textViewEfeitos)
 

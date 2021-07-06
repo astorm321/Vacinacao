@@ -36,4 +36,18 @@
     <string name="cancelar_ficha">cancelar_ficha</string>
     <string name="nova_ficha">nova_ficha</string>
 
+    <string name="preencha_nome">Preencha o Nome do Paciente</string>
+    <string name="preencha_data">Preencha a Data</string>
+    <string name="preencha_hora">Preencha a Hora</string>
+    <string name="ficha_guardada_sucesso">Ficha Guardada Com Suceso</string>
+    <string name="erro_inserir_ficha">Erro ao inserir Ficha</string>
+    <string name="preencha_efeitos">Preencha os Efeitos</string>
+    <string name="id_paciente">ID Paciente</string>
+    <string name="textview">TextView</string>
+    <string name="erro_eliminar_ficha">Erro ao eliminar Ficha</string>
+    <string name="livro_eliminado_sucesso">Erro ao eliminar Ficha</string>
+
+
+
+
 </resources>

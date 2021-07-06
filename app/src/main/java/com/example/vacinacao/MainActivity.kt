@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_lista_ficha -> (DadosApp.fragment as ListaFichaFragment).processaOpcaoMenu(
                     item
                 )
-                R.menu.menu_novo_ficha -> (DadosApp.fragment as NovaFichaFragment).processaOpcaoMenu(
+                R.menu.menu_nova_ficha -> (DadosApp.fragment as NovaFichaFragment).processaOpcaoMenu(
                     item
                 )
                 R.menu.menu_edita_ficha -> (DadosApp.fragment as EditaFichaFragment).processaOpcaoMenu(

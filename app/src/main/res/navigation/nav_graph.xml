@@ -39,7 +39,7 @@
         android:id="@+id/novoFichaFragment"
         android:name="com.example.vacinacao.NovaFichaFragment"
         android:label="@string/novo_ficha_fragment_label"
-        tools:layout="@layout/fragment_novo_ficha">
+        tools:layout="@layout/fragment_nova_ficha">
 
         <action
             android:id="@+id/action_NovoFichaFragment_to_ListaFichaFragment"
