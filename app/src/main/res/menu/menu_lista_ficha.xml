@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_novo_livro"
+        android:id="@+id/action_nova_ficha"
         android:icon="@android:drawable/ic_input_add"
-        android:title="@string/novo_livro"
+        android:title="@string/nova_ficha"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_alterar_ficha"

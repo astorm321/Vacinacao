@@ -9,12 +9,20 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.vacinacao.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var menu: Menu
+
+    var menuAtual = R.menu.menu_lista_ficha
+        set(value) {
+            field = value
+            invalidateOptionsMenu()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        DadosApp.activity = this
+
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -36,7 +46,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(menuAtual, menu)
+        this.menu = menu
+
+        if(menuAtual == R.menu.menu_lista_ficha){
+            atualizaMenuListaFicha(false)
+        }
+
         return true
     }
 
@@ -44,15 +60,40 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        val opcaoProcessada = when (item.itemId) {
+            R.id.action_settings -> {
+                Toast.makeText(this, R.string.versao, Toast.LENGTH_LONG).show()
+                true
+            }
+
+            else -> when (menuAtual) {
+                R.menu.menu_lista_ficha -> (DadosApp.fragment as ListaFichaFragment).processaOpcaoMenu(
+                    item
+                )
+                R.menu.menu_novo_ficha -> (DadosApp.fragment as NovaFichaFragment).processaOpcaoMenu(
+                    item
+                )
+                R.menu.menu_edita_ficha -> (DadosApp.fragment as EditaFichaFragment).processaOpcaoMenu(
+                    item
+                )
+                R.menu.menu_elimina_ficha -> (DadosApp.fragment as EliminaFichaFragment).processaOpcaoMenu(
+                    item
+                )
+                else -> false
+            }
+
         }
+        return if(opcaoProcessada) true else super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    fun atualizaMenuListaFicha(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_ficha).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_ficha).setVisible(mostraBotoesAlterarEliminar)
     }
 }

@@ -40,7 +40,7 @@
         android:layout_height="30dp"
         android:layout_margin="8dp"
         android:gravity="center"
-        android:text="@string/biontech" />
+        tools:text="@string/biontech" />
 
     <TextView
         android:id="@+id/textViewDate"
@@ -63,7 +63,7 @@
         android:text="@string/hora" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewHora"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_margin="8dp"

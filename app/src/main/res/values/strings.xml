@@ -3,7 +3,7 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="fragment_lista_ficha">Lista Ficha</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -26,11 +26,14 @@
     <string name="nome_vacina">Nome Vacina</string>
     <string name="novo_livro">novo_livro</string>
     <string name="alterar_livro">alterar_livro</string>
-
+    <string name="versao">LFicha v. 1.0</string>
     <string name="action_setings">action_settings</string>
-
+    <string name="elimina_ficha_fragment_label">Eliminar Ficha?</string>
+    <string name="edita_ficha_fragment_label">Editar Ficha</string>
+    <string name="novo_ficha_fragment_label">Nova Ficha</string>
     <string name="edita_ficha">edita_ficha</string>
     <string name="eliminar_ficha">eliminar_ficha</string>
     <string name="cancelar_ficha">cancelar_ficha</string>
+    <string name="nova_ficha">nova_ficha</string>
 
 </resources>
