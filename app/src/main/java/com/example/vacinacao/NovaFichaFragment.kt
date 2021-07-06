@@ -64,7 +64,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         _binding = null
     }
 
-    fun navegaListaLivros() {
+    fun navegaListaFicha() {
         findNavController().navigate(R.id.action_NovoFichaFragment_to_ListaFichaFragment)
     }
 
@@ -100,7 +100,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         val idVacina = spinnerVacinas.selectedItemId
 
-        val ficha = Ficha(nomePaciente = paciente, data = data, hora = hora , efeitos = efeitos, idVacina = idVacina )
+        val ficha = Ficha(nomePaciente = paciente, data = data, hora = hora , efeitos = efeitos, idVacina = idVacina , idPaciente = idPaciente )
 
         val uri = activity?.contentResolver?.insert(
             ContentProviderFicha.ENDERECO_FICHAS,
@@ -121,13 +121,13 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             R.string.ficha_guardada_sucesso,
             Toast.LENGTH_LONG
         ).show()
-        navegaListaLivros()
+        navegaListaFicha()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_guardar_novo_ficha -> guardar()
-            R.id.action_cancelar_novo_ficha -> navegaListaLivros()
+            R.id.action_cancelar_novo_ficha -> navegaListaFicha()
             else -> return false
         }
 

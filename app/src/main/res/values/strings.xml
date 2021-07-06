@@ -24,8 +24,8 @@
     <string name="guardar">guardar</string>
     <string name="cancelar">cancelar</string>
     <string name="nome_vacina">Nome Vacina</string>
-    <string name="novo_livro">novo_livro</string>
-    <string name="alterar_livro">alterar_livro</string>
+
+    <string name="alterar_ficha">alterar_ficha</string>
     <string name="versao">LFicha v. 1.0</string>
     <string name="action_setings">action_settings</string>
     <string name="elimina_ficha_fragment_label">Eliminar Ficha?</string>
@@ -45,7 +45,7 @@
     <string name="id_paciente">ID Paciente</string>
     <string name="textview">TextView</string>
     <string name="erro_eliminar_ficha">Erro ao eliminar Ficha</string>
-    <string name="livro_eliminado_sucesso">Erro ao eliminar Ficha</string>
+    <string name="ficha_eliminada_sucesso">Erro ao eliminar Ficha</string>
 
 
 

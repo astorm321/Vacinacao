@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 
 /**
  * A simple [Fragment] subclass.
- * Use the [EliminaLivroFragment.newInstance] factory method to
+ * Use the [EliminaFichaFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class EliminaFichaFragment : Fragment() {
@@ -52,7 +52,7 @@ class EliminaFichaFragment : Fragment() {
         textViewEfeitos.setText(ficha.efeitos)
     }
 
-    fun navegaListaLivros() {
+    fun navegaListaFicha() {
         findNavController().navigate(R.id.action_eliminaFichaFragment_to_listaFichaFragment)
     }
 
@@ -79,16 +79,16 @@ class EliminaFichaFragment : Fragment() {
 
         Toast.makeText(
             requireContext(),
-            R.string.livro_eliminado_sucesso,
+            R.string.ficha_eliminada_sucesso,
             Toast.LENGTH_LONG
         ).show()
-        navegaListaLivros()
+        navegaListaFicha()
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_confirma_eliminar_ficha -> elimina()
-            R.id.action_cancelar_eliminar_ficha -> navegaListaLivros()
+            R.id.action_cancelar_eliminar_ficha -> navegaListaFicha()
             else -> return false
         }
 
