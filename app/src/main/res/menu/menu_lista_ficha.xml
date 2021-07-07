@@ -10,7 +10,7 @@
     <item
         android:id="@+id/action_alterar_ficha"
         android:icon="@android:drawable/ic_menu_edit"
-        android:title="@string/alterar_livro"
+        android:title="@string/alterar_ficha"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_eliminar_ficha"

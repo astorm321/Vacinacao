@@ -14,6 +14,18 @@
         <action
             android:id="@+id/action_FirstFragment_to_ListaFichaFragment"
             app:destination="@id/listaFichaFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/listaFichaFragment"
+        android:name="com.example.vacinacao.ListaFichaFragment"
+        android:label="@string/fragment_lista_ficha"
+        tools:layout="@layout/fragment_lista_ficha">
+
+        <action
+            android:id="@+id/action_listaFichaFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+
         <action
             android:id="@+id/action_listaFichaFragment_to_editaFichaFragment"
             app:destination="@id/editaFichaFragment" />
@@ -21,28 +33,18 @@
             android:id="@+id/action_listaFichaFragment_to_eliminaFichaFragment"
             app:destination="@id/eliminaFichaFragment" />
         <action
-            android:id="@+id/action_listaFichaFragment_to_novoFichaFragment"
-            app:destination="@id/eliminaFichaFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/listaFichaFragment"
-        android:name="com.example.vacinacao.SecondFragment"
-        android:label="@string/fragment_lista_ficha"
-        tools:layout="@layout/fragment_lista_ficha">
-
-        <action
-            android:id="@+id/action_listaFichaFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_listaFichaFragment_to_novaFichaFragment"
+            app:destination="@id/novaFichaFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/novoFichaFragment"
+        android:id="@+id/novaFichaFragment"
         android:name="com.example.vacinacao.NovaFichaFragment"
-        android:label="@string/novo_ficha_fragment_label"
+        android:label="@string/nova_ficha_fragment_label"
         tools:layout="@layout/fragment_nova_ficha">
 
         <action
-            android:id="@+id/action_NovoFichaFragment_to_ListaFichaFragment"
+            android:id="@+id/action_NovaFichaFragment_to_ListaFichaFragment"
             app:destination="@id/listaFichaFragment" />
     </fragment>
 

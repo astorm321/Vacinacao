@@ -331,7 +331,7 @@ class ContentProviderFicha : ContentProvider() {
     }
 
     companion object {
-        private const val AUTHORITY = "pt.ipg.vacinacao"
+        private const val AUTHORITY = "com.example.vacinacao"
 
         private const val FICHAS = "fichas"
         private const val PACIENTES = "pacientes"

@@ -49,7 +49,7 @@ class ListaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun navegaNovoLivro() {
-        findNavController().navigate(R.id.action_listaFichaFragment_to_novoFichaFragment)
+        findNavController().navigate(R.id.action_listaFichaFragment_to_novaFichaFragment)
     }
 
     fun navegaAlterarLivro() {

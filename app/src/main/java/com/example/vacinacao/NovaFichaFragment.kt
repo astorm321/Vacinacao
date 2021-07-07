@@ -30,6 +30,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private lateinit var editTextHora: EditText
     private lateinit var editTextEfeitos: EditText
     private lateinit var spinnerVacinas: Spinner
+    private lateinit var spinnerID: Spinner
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -54,6 +55,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         editTextHora = view.findViewById(R.id.editTextHora)
         editTextEfeitos = view.findViewById(R.id.editTextEfeitos)
         spinnerVacinas = view.findViewById(R.id.spinnerVacinas)
+        spinnerID = view.findViewById(R.id.spinnerID)
 
         LoaderManager.getInstance(this)
             .initLoader(ID_LOADER_MANAGER_FICHAS, null, this)
@@ -65,7 +67,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun navegaListaFicha() {
-        findNavController().navigate(R.id.action_NovoFichaFragment_to_ListaFichaFragment)
+        findNavController().navigate(R.id.action_NovaFichaFragment_to_ListaFichaFragment)
     }
 
     fun guardar() {
@@ -96,6 +98,8 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             editTextEfeitos.requestFocus()
             return
         }
+
+        val idPaciente = spinnerID.selectedItemId
 
 
         val idVacina = spinnerVacinas.selectedItemId

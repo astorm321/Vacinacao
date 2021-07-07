@@ -30,7 +30,7 @@
     <string name="action_setings">action_settings</string>
     <string name="elimina_ficha_fragment_label">Eliminar Ficha?</string>
     <string name="edita_ficha_fragment_label">Editar Ficha</string>
-    <string name="novo_ficha_fragment_label">Nova Ficha</string>
+    <string name="nova_ficha_fragment_label">Nova Ficha</string>
     <string name="edita_ficha">edita_ficha</string>
     <string name="eliminar_ficha">eliminar_ficha</string>
     <string name="cancelar_ficha">cancelar_ficha</string>
@@ -46,8 +46,8 @@
     <string name="textview">TextView</string>
     <string name="erro_eliminar_ficha">Erro ao eliminar Ficha</string>
     <string name="ficha_eliminada_sucesso">Erro ao eliminar Ficha</string>
-
-
+    <string name="ficha_paciente">Ficha_Paciente</string>
+    <string name="ficha_tecnica_covid">Ficha Tecnica Covid</string>
 
 
 </resources>
