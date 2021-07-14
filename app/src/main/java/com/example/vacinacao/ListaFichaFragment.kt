@@ -48,23 +48,23 @@ class ListaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             .initLoader(ID_LOADER_MANAGER_FICHAS, null, this)
     }
 
-    fun navegaNovoLivro() {
+    fun navegaNovoFicha() {
         findNavController().navigate(R.id.action_listaFichaFragment_to_novaFichaFragment)
     }
 
-    fun navegaAlterarLivro() {
+    fun navegaAlterarFicha() {
         findNavController().navigate(R.id.action_listaFichaFragment_to_editaFichaFragment)
     }
 
-    fun navegaEliminarLivro() {
+    fun navegaEliminarFicha() {
         findNavController().navigate(R.id.action_listaFichaFragment_to_eliminaFichaFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_nova_ficha -> navegaNovoLivro()
-            R.id.action_alterar_ficha -> navegaAlterarLivro()
-            R.id.action_eliminar_ficha -> navegaEliminarLivro()
+            R.id.action_nova_ficha -> navegaNovoFicha()
+            R.id.action_alterar_ficha -> navegaAlterarFicha()
+            R.id.action_eliminar_ficha -> navegaEliminarFicha()
             else -> return false
         }
 
