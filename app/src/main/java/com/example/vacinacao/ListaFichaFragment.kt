@@ -89,10 +89,10 @@ class ListaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            ContentProviderFicha.ENDERECO_FICHAS,
+            ContentProviderVacinacao.ENDERECO_FICHAS,
             TabelaFicha.TODAS_COLUNAS,
             null, null,
-            TabelaFicha.NOME_TABELA
+            TabelaFicha.CAMPO_DATA
         )
     }
 

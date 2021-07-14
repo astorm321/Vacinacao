@@ -107,7 +107,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val ficha = Ficha(nomePaciente = paciente, data = data, hora = hora , efeitos = efeitos, idVacina = idVacina , idPaciente = idPaciente )
 
         val uri = activity?.contentResolver?.insert(
-            ContentProviderFicha.ENDERECO_FICHAS,
+            ContentProviderVacinacao.ENDERECO_FICHAS,
             ficha.toContentValues()
         )
 
@@ -151,12 +151,14 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onCreateLoader(id: Int, args: Bundle?): Loader<Cursor> {
         return CursorLoader(
             requireContext(),
-            ContentProviderFicha.ENDERECO_PACIENTES,
+            ContentProviderVacinacao.ENDERECO_PACIENTES,
             TabelaPaciente.TODAS_COLUNAS,
             null, null,
             TabelaPaciente.NOME_PACIENTE
         )
     }
+
+
 
     /**
      * Called when a previously created loader has finished its load.  Note
@@ -203,6 +205,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      */
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
         atualizaSpinnerVacinas(data)
+        atualizaSpinnerID(data)
     }
 
     /**
@@ -217,6 +220,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
         atualizaSpinnerVacinas(null)
+        atualizaSpinnerID(null)
     }
 
     private fun atualizaSpinnerVacinas(data: Cursor?) {
@@ -225,6 +229,17 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             android.R.layout.simple_list_item_1,
             data,
             arrayOf(TabelaVacina.CAMPO_NOME_VACINA),
+            intArrayOf(android.R.id.text1),
+            0
+        )
+    }
+
+    private fun atualizaSpinnerID(data: Cursor?) {
+        spinnerID.adapter = SimpleCursorAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_2,
+            data,
+            arrayOf(TabelaPaciente.NOME_PACIENTE),
             intArrayOf(android.R.id.text1),
             0
         )

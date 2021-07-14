@@ -22,7 +22,7 @@
 
         <provider
             android:authorities="com.example.vacinacao"
-            android:name=".ContentProviderFicha"
+            android:name=".ContentProviderVacinacao"
             android:exported="false" />
     </application>
 

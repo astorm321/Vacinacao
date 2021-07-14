@@ -8,7 +8,7 @@ import android.net.Uri
 import android.provider.BaseColumns
 import kotlin.math.E
 
-class ContentProviderFicha : ContentProvider() {
+class ContentProviderVacinacao : ContentProvider() {
     private var bdVacinacaoOpenHelper: BdVacinacaoOpenHelper? = null
 
     /**

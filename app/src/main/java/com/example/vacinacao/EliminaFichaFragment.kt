@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.loader.app.LoaderManager
 import androidx.navigation.fragment.findNavController
 
 /**
@@ -58,7 +57,7 @@ class EliminaFichaFragment : Fragment() {
 
     fun elimina() {
         val uriFicha = Uri.withAppendedPath(
-            ContentProviderFicha.ENDERECO_FICHAS,
+            ContentProviderVacinacao.ENDERECO_FICHAS,
             DadosApp.fichaSelecionado!!.id.toString()
         )
 

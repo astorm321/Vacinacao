@@ -80,7 +80,7 @@ class TabelaFicha(db: SQLiteDatabase) {
             }
         }
         */
-        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_PACIENTE"
+        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_PACIENTE ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_VACINA "
 
         var sql = "SELECT $colunas FROM $tabelas"
 
@@ -98,7 +98,7 @@ class TabelaFicha(db: SQLiteDatabase) {
 
 
     companion object {
-        const val NOME_TABELA = "Ficha_Tecnica"
+        const val NOME_TABELA = "Ficha"
         const val CAMPO_DATA ="Data"
         const val CAMPO_HORA ="Hora"
         const val CAMPO_EFEITOS ="Efeitos"
@@ -107,7 +107,7 @@ class TabelaFicha(db: SQLiteDatabase) {
         const val CAMPO_EXTERNO_NOME_PACIENTE = "nome_paciente"
         const val CAMPO_EXTERNO_NOME_VACINA = "nome_vacina"
 
-        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_DATA, CAMPO_HORA , CAMPO_EFEITOS , CAMPO_ID_PACIENTE , CAMPO_ID_VACINA)
+        val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_DATA, CAMPO_HORA , CAMPO_EFEITOS , CAMPO_ID_PACIENTE , CAMPO_ID_VACINA )
     }
 
 }
