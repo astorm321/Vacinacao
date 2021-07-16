@@ -15,6 +15,10 @@
             android:id="@+id/action_FirstFragment_to_ListaFichaFragment"
             app:destination="@id/listaFichaFragment" />
 
+        <action
+            android:id="@+id/action_FirstFragment_to_ListaPacienteFragment"
+            app:destination="@id/listaPacienteFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/listaFichaFragment"
@@ -67,4 +71,34 @@
             android:id="@+id/action_eliminaFichaFragment_to_listaFichaFragment"
             app:destination="@id/listaFichaFragment" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/listaPacienteFragment"
+        android:name="com.example.vacinacao.ListaPacienteFragment"
+        android:label="@string/fragment_lista_paciente"
+        tools:layout="@layout/fragment_lista_paciente">
+    </fragment>
+
+    <fragment
+        android:id="@+id/novoPacienteFragment"
+        android:name="com.example.vacinacao.NovoPacienteFragment"
+        android:label="@string/fragment_novo_paciente"
+        tools:layout="@layout/fragment_novo_paciente">
+    </fragment>
+
+    <fragment
+        android:id="@+id/editaPacienteFragment"
+        android:name="com.example.vacinacao.EditaPacienteFragment"
+        android:label="@string/fragment_edita_paciente"
+        tools:layout="@layout/fragment_edita_paciente">
+    </fragment>
+
+    <fragment
+        android:id="@+id/eliminaPacienteFragment"
+        android:name="com.example.vacinacao.EliminaPacienteFragment"
+        android:label="@string/fragment_elimina_paciente"
+        tools:layout="@layout/fragment_elimina_paciente">
+    </fragment>
+
 </navigation>

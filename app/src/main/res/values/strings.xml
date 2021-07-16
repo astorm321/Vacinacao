@@ -61,6 +61,10 @@
     <string name="peso">Peso</string>
     <string name="data_nascimento">Data Nascimento</string>
     <string name="gest_o_pacientes">Gestão Pacientes</string>
+    <string name="fragment_lista_paciente">Lista Pacientes</string>
+    <string name="fragment_novo_paciente">Novo Paciente</string>
+    <string name="fragment_edita_paciente">Edita Paciente</string>
+    <string name="fragment_elimina_paciente">Elimina Paciente</string>
 
 
 </resources>

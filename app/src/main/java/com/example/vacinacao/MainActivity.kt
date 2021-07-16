@@ -77,6 +77,19 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_elimina_ficha -> (DadosApp.fragment as EliminaFichaFragment).processaOpcaoMenu(
                     item
                 )
+               /* R.menu.menu_lista_paciente -> (DadosApp.fragment as ListaPacienteFragment).processaOpcaoMenu(
+                    item
+                )
+                R.menu.menu_novo_paciente -> (DadosApp.fragment as NovoPacienteFragment).processaOpcaoMenu(
+                    item
+                )
+                R.menu.menu_edita_paciente -> (DadosApp.fragment as EditaPacienteFragment).processaOpcaoMenu(
+                    item
+                )
+                R.menu.menu_elimina_paciente -> (DadosApp.fragment as EliminaPacienteFragment).processaOpcaoMenu(
+                    item
+                )*/
+
                 else -> false
             }
 
@@ -93,5 +106,10 @@ class MainActivity : AppCompatActivity() {
     fun atualizaMenuListaFicha(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_ficha).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_ficha).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaPaciente(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_paciente).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_paciente).setVisible(mostraBotoesAlterarEliminar)
     }
 }

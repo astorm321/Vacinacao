@@ -36,7 +36,7 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_ListaFichaFragment)
         }
         binding.pacienteFicha.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_ListaFichaFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_ListaPacienteFragment)
         }
     }
 
