@@ -60,6 +60,7 @@
     <string name="altura">Altura</string>
     <string name="peso">Peso</string>
     <string name="data_nascimento">Data Nascimento</string>
+    <string name="gest_o_pacientes">Gestão Pacientes</string>
 
 
 </resources>

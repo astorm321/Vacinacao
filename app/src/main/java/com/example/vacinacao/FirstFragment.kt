@@ -35,7 +35,13 @@ class FirstFragment : Fragment() {
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_ListaFichaFragment)
         }
+        binding.pacienteFicha.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_ListaFichaFragment)
+        }
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
