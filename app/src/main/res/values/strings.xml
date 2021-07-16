@@ -48,6 +48,8 @@
     <string name="ficha_eliminada_sucesso">Erro ao eliminar Ficha</string>
     <string name="ficha_paciente">Ficha_Paciente</string>
     <string name="ficha_tecnica_covid">Ficha Tecnica Covid</string>
+    <string name="erro_alterar_ficha">Erro alterar ficha</string>
+    <string name="ficha_guardado_sucesso">Guardada com sucesso</string>
 
 
 </resources>

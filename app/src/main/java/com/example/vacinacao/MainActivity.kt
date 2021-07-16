@@ -73,9 +73,9 @@ class MainActivity : AppCompatActivity() {
                 R.menu.menu_nova_ficha -> (DadosApp.fragment as NovaFichaFragment).processaOpcaoMenu(
                     item
                 )
-                // R.menu.menu_edita_ficha -> (DadosApp.fragment as EditaFichaFragment).processaOpcaoMenu(
-                //item
-                //)
+                R.menu.menu_edita_ficha -> (DadosApp.fragment as EditaFichaFragment).processaOpcaoMenu(
+                item
+                )
                 R.menu.menu_elimina_ficha -> (DadosApp.fragment as EliminaFichaFragment).processaOpcaoMenu(
                     item
                 )
