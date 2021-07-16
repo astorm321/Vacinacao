@@ -50,7 +50,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNomePaciente = view.findViewById(R.id.editTextNomePaciente)
+        editTextNomePaciente = view.findViewById(R.id.editTextNomePacient)
         editTextData = view.findViewById(R.id.editTextData)
         editTextHora = view.findViewById(R.id.editTextHora)
         editTextEfeitos = view.findViewById(R.id.editTextEfeitos)

@@ -78,6 +78,20 @@
         android:name="com.example.vacinacao.ListaPacienteFragment"
         android:label="@string/fragment_lista_paciente"
         tools:layout="@layout/fragment_lista_paciente">
+
+        <action
+            android:id="@+id/action_listaPacienteFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+
+        <action
+            android:id="@+id/action_listaPacienteFragment_to_editaPacienteFragment"
+            app:destination="@id/editaPacienteFragment" />
+        <action
+            android:id="@+id/action_listaPacienteFragment_to_eliminaPacienteFragment"
+            app:destination="@id/eliminaPacienteFragment" />
+        <action
+            android:id="@+id/action_listaPacienteFragment_to_novoPacienteFragment"
+            app:destination="@id/novoPacienteFragment" />
     </fragment>
 
     <fragment
@@ -85,6 +99,10 @@
         android:name="com.example.vacinacao.NovoPacienteFragment"
         android:label="@string/fragment_novo_paciente"
         tools:layout="@layout/fragment_novo_paciente">
+
+        <action
+            android:id="@+id/action_NovoPacienteFragment_to_ListaPacienteFragment"
+            app:destination="@id/listaPacienteFragment" />
     </fragment>
 
     <fragment
@@ -92,6 +110,10 @@
         android:name="com.example.vacinacao.EditaPacienteFragment"
         android:label="@string/fragment_edita_paciente"
         tools:layout="@layout/fragment_edita_paciente">
+
+        <action
+            android:id="@+id/action_editaPacienteFragment_to_listaPacienteFragment"
+            app:destination="@id/listaPacienteFragment" />
     </fragment>
 
     <fragment
@@ -99,6 +121,10 @@
         android:name="com.example.vacinacao.EliminaPacienteFragment"
         android:label="@string/fragment_elimina_paciente"
         tools:layout="@layout/fragment_elimina_paciente">
+
+        <action
+            android:id="@+id/action_eliminaPacienteFragment_to_listaPacienteFragment"
+            app:destination="@id/listaPacienteFragment" />
     </fragment>
 
 </navigation>

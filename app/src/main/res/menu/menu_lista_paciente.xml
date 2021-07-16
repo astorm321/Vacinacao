@@ -11,12 +11,12 @@
         android:id="@+id/action_alterar_paciente"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="@string/alterar_paciente"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_eliminar_paciente"
         android:icon="@android:drawable/ic_menu_delete"
         android:title="@string/eliminar_paciente"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

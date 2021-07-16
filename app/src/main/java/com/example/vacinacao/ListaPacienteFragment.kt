@@ -30,7 +30,7 @@ class ListaPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         savedInstanceState: Bundle?
     ): View? {
         DadosApp.fragment = this
-        (activity as MainActivity).menuAtual = R.menu.menu_lista_ficha
+        (activity as MainActivity).menuAtual = R.menu.menu_lista_paciente
 
         _binding = FragmentListaPacienteBinding.inflate(inflater, container, false)
         return binding.root
@@ -48,23 +48,23 @@ class ListaPacienteFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
             .initLoader(ID_LOADER_MANAGER_PACIENTE, null, this)
     }
 
-    fun navegaNovoFicha() {
-        findNavController().navigate(R.id.action_listaFichaFragment_to_novaFichaFragment)
+    fun navegaNovoPaciente() {
+        findNavController().navigate(R.id.action_listaPacienteFragment_to_novoPacienteFragment)
     }
 
-    fun navegaAlterarFicha() {
-        findNavController().navigate(R.id.action_listaFichaFragment_to_editaFichaFragment)
+    fun navegaAlterarPaciente() {
+        findNavController().navigate(R.id.action_listaPacienteFragment_to_editaPacienteFragment)
     }
 
-    fun navegaEliminarFicha() {
-        findNavController().navigate(R.id.action_listaFichaFragment_to_eliminaFichaFragment)
+    fun navegaEliminarPaciente() {
+        findNavController().navigate(R.id.action_listaPacienteFragment_to_eliminaPacienteFragment)
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_novo_paciente -> navegaNovoFicha()
-            R.id.action_alterar_paciente -> navegaAlterarFicha()
-            R.id.action_eliminar_paciente -> navegaEliminarFicha()
+            R.id.action_novo_paciente -> navegaNovoPaciente()
+            R.id.action_alterar_paciente -> navegaAlterarPaciente()
+            R.id.action_eliminar_paciente -> navegaEliminarPaciente()
             else -> return false
         }
 

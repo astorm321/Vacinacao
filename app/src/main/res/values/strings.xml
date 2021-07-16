@@ -65,6 +65,13 @@
     <string name="fragment_novo_paciente">Novo Paciente</string>
     <string name="fragment_edita_paciente">Edita Paciente</string>
     <string name="fragment_elimina_paciente">Elimina Paciente</string>
-
+    <string name="paciente_guardado_sucesso">Paciente Guardado com Sucesso</string>
+    <string name="erro_inserir_paciente">Erro ao Inserir Paciente</string>
+    <string name="preencha_morada">Preencha Morada</string>
+    <string name="preencha_Contacto">Preencha Contacto</string>
+    <string name="preencha_Utente">Preencha Numero Utente</string>
+    <string name="preencha_altura">Preencha Altura</string>
+    <string name="preencha_peso">Preencha Peso</string>
+    <string name="preencha_datanascimento">Preencha Data Nascimento</string>
 
 </resources>
