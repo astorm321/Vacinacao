@@ -45,11 +45,12 @@
     <string name="id_paciente">ID Paciente</string>
     <string name="textview">TextView</string>
     <string name="erro_eliminar_ficha">Erro ao eliminar Ficha</string>
-    <string name="ficha_eliminada_sucesso">Erro ao eliminar Ficha</string>
+    <string name="ficha_eliminada_sucesso">Eliminado Com sucesso</string>
     <string name="ficha_paciente">Ficha_Paciente</string>
     <string name="ficha_tecnica_covid">Ficha Tecnica Covid</string>
     <string name="erro_alterar_ficha">Erro alterar ficha</string>
     <string name="ficha_guardado_sucesso">Guardada com sucesso</string>
+    <string name="id_paciente">ID Paciente</string>
 
 
 </resources>

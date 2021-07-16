@@ -67,7 +67,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:text="ID Paciente" />
+                        android:text="@string/id_paciente" />
 
                     <Spinner
                         android:id="@+id/spinnerID"

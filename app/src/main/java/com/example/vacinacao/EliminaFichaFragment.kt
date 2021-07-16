@@ -19,9 +19,13 @@ import androidx.navigation.fragment.findNavController
 class EliminaFichaFragment : Fragment() {
     private lateinit var textViewNomePaciente: TextView
     private lateinit var textViewNomeVacina: TextView
-    private lateinit var textViewData1: TextView
+    private lateinit var textView8: TextView
     private lateinit var textViewHora: TextView
-    private lateinit var textViewEfeitos: TextView
+    private lateinit var textViewEfeitos1: TextView
+
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,16 +43,16 @@ class EliminaFichaFragment : Fragment() {
 
         textViewNomePaciente = view.findViewById(R.id.textViewNomePaciente)
         textViewNomeVacina = view.findViewById(R.id.textViewNomeVacina)
-        textViewData1 = view.findViewById(R.id.textViewData1)
+        textView8 = view.findViewById(R.id.textView8)
         textViewHora = view.findViewById(R.id.textViewHora)
-        textViewEfeitos = view.findViewById(R.id.textViewEfeitos)
+        textViewEfeitos1 = view.findViewById(R.id.textViewEfeitos1)
 
         val ficha = DadosApp.fichaSelecionado!!
         textViewNomePaciente.setText(ficha.nomePaciente)
         textViewNomeVacina.setText(ficha.nomeVacina)
-        textViewData1.setText(ficha.data)
+        textView8.setText(ficha.data)
         textViewHora.setText(ficha.hora)
-        textViewEfeitos.setText(ficha.efeitos)
+        textViewEfeitos1.setText(ficha.efeitos)
     }
 
     fun navegaListaFicha() {

@@ -30,7 +30,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private lateinit var editTextHora: EditText
     private lateinit var editTextEfeitos: EditText
     private lateinit var spinnerVacinas: Spinner
-    private lateinit var spinnerID: Spinner
+    private lateinit var spinnerID1: Spinner
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,7 +51,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         editTextHora = view.findViewById(R.id.editTextHora)
         editTextEfeitos = view.findViewById(R.id.editTextEfeitos)
         spinnerVacinas = view.findViewById(R.id.spinnerVacinas)
-        spinnerID = view.findViewById(R.id.spinnerID)
+        spinnerID1 = view.findViewById(R.id.spinnerID1)
 
         LoaderManager.getInstance(this)
             .initLoader(NovaFichaFragment.ID_LOADER_MANAGER_FICHAS, null, this)
@@ -98,7 +98,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             return
         }
 
-        val idPaciente = spinnerID.selectedItemId
+        val idPaciente = spinnerID1.selectedItemId
 
 
         val idVacina = spinnerVacinas.selectedItemId
@@ -230,7 +230,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             atualizaSpinnerVacinas(data)
             atualizaVacinaSelecionada()
         }else {
-            atualizaSpinnerID(data)
+            atualizaSpinnerID1(data)
             atualizaPacienteSelecionada()
         }
     }
@@ -249,7 +249,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         if (id == NovaFichaFragment.ID_LOADER_MANAGER_FICHAS){
             atualizaSpinnerVacinas(null)
         }else {
-            atualizaSpinnerID(null)
+            atualizaSpinnerID1(null)
         }
     }
 
@@ -264,8 +264,8 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         )
     }
 
-    private fun atualizaSpinnerID(data: Cursor?) {
-        spinnerID.adapter = SimpleCursorAdapter(
+    private fun atualizaSpinnerID1(data: Cursor?) {
+        spinnerID1.adapter = SimpleCursorAdapter(
             requireContext(),
             android.R.layout.simple_list_item_2,
             data,
@@ -290,10 +290,10 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private fun atualizaPacienteSelecionada() {
         val idPaciente = DadosApp.fichaSelecionado!!.idPaciente
 
-        val ultimaPaciente = spinnerID.count - 1
+        val ultimaPaciente = spinnerID1.count - 1
         for (i in 0..ultimaPaciente) {
-            if (idPaciente == spinnerID.getItemIdAtPosition(i)) {
-                spinnerID.setSelection(i)
+            if (idPaciente == spinnerID1.getItemIdAtPosition(i)) {
+                spinnerID1.setSelection(i)
                 return
             }
         }
