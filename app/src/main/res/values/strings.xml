@@ -50,7 +50,16 @@
     <string name="ficha_tecnica_covid">Ficha Tecnica Covid</string>
     <string name="erro_alterar_ficha">Erro alterar ficha</string>
     <string name="ficha_guardado_sucesso">Guardada com sucesso</string>
-    <string name="id_paciente">ID Paciente</string>
+    <string name="eliminar_paciente">eliminar_paciente</string>
+    <string name="alterar_paciente">alterar_paciente</string>
+    <string name="novo_paciente">novo_paciente</string>
+    <string name="nome_pacientE">Nome Paciente:</string>
+    <string name="morada">Morada</string>
+    <string name="contacto">Contacto</string>
+    <string name="numero_utente">Numero Utente</string>
+    <string name="altura">Altura</string>
+    <string name="peso">Peso</string>
+    <string name="data_nascimento">Data Nascimento</string>
 
 
 </resources>

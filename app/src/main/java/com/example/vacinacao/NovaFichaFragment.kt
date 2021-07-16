@@ -73,8 +73,8 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun guardar() {
-        val paciente = editTextNomePaciente.text.toString()
-        if (paciente.isEmpty()) {
+        val nomePaciente = editTextNomePaciente.text.toString()
+        if (nomePaciente.isEmpty()) {
             editTextNomePaciente.setError(getString(R.string.preencha_nome))
             editTextNomePaciente.requestFocus()
             return
@@ -106,7 +106,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         val idVacina = spinnerVacinas.selectedItemId
 
-        val ficha = Ficha(nomePaciente = paciente, data = data, hora = hora , efeitos = efeitos, idVacina = idVacina , idPaciente = idPaciente )
+        val ficha = Ficha(nomePaciente = nomePaciente, data = data, hora = hora , efeitos = efeitos, idVacina = idVacina , idPaciente = idPaciente )
 
         val uri = activity?.contentResolver?.insert(
             ContentProviderVacinacao.ENDERECO_FICHAS,

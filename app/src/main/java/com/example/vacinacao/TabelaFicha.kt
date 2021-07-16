@@ -107,6 +107,7 @@ class TabelaFicha(db: SQLiteDatabase) {
         const val CAMPO_EXTERNO_NOME_PACIENTE = "nome_paciente"
         const val CAMPO_EXTERNO_NOME_VACINA = "nome_vacina"
 
+
         val TODAS_COLUNAS = arrayOf(BaseColumns._ID, CAMPO_DATA, CAMPO_HORA , CAMPO_EFEITOS , CAMPO_ID_PACIENTE , CAMPO_ID_VACINA )
     }
 

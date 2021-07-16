@@ -25,7 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:hint="@string/Data" />
+                android:hint="@string/Data"
+                android:inputType="date" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -36,7 +37,8 @@
                     android:id="@+id/editTextHora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/Hora" />
+                    android:hint="@string/Hora"
+                    android:inputType="time" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
