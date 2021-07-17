@@ -22,6 +22,7 @@ class EliminaFichaFragment : Fragment() {
     private lateinit var textView8: TextView
     private lateinit var textViewHora: TextView
     private lateinit var textViewEfeitos1: TextView
+    private lateinit var textViewID: TextView
 
 
 
@@ -41,14 +42,16 @@ class EliminaFichaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        textViewNomePaciente = view.findViewById(R.id.textViewNomePaciente)
+        textViewID = view.findViewById(R.id.textViewID)
+
         textViewNomeVacina = view.findViewById(R.id.textViewNomeVacina)
         textView8 = view.findViewById(R.id.textView8)
         textViewHora = view.findViewById(R.id.textViewHora)
         textViewEfeitos1 = view.findViewById(R.id.textViewEfeitos1)
 
         val ficha = DadosApp.fichaSelecionado!!
-        textViewNomePaciente.setText(ficha.nomePaciente)
+        textViewID.setText(ficha.idPaciente.toString())
+
         textViewNomeVacina.setText(ficha.nomeVacina)
         textView8.setText(ficha.data)
         textViewHora.setText(ficha.hora)
