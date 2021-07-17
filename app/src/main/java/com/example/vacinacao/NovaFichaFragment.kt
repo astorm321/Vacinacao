@@ -248,10 +248,10 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private fun atualizaSpinnerVacinas(data: Cursor?) {
         spinnerVacinas.adapter = SimpleCursorAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_1,
+            android.R.layout.simple_list_item_2,
             data,
             arrayOf(TabelaVacina.CAMPO_NOME_VACINA),
-            intArrayOf(android.R.id.text1),
+            intArrayOf(android.R.id.text2),
             0
         )
     }

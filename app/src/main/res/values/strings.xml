@@ -8,7 +8,6 @@
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="vacina">Vacina:</string>
     <string name="biontech">BioNTech</string>
     <string name="data">Data:</string>
@@ -26,7 +25,7 @@
     <string name="nome_vacina">Nome Vacina</string>
 
     <string name="alterar_ficha">alterar_ficha</string>
-    <string name="versao">LFicha v. 1.0</string>
+    <string name="versao" translatable="false">LFicha v. 1.0</string>
     <string name="action_setings">action_settings</string>
     <string name="elimina_ficha_fragment_label">Eliminar Ficha?</string>
     <string name="edita_ficha_fragment_label">Editar Ficha</string>
@@ -43,10 +42,10 @@
     <string name="erro_inserir_ficha">Erro ao inserir Ficha</string>
     <string name="preencha_efeitos">Preencha os Efeitos</string>
     <string name="id_paciente">ID Paciente</string>
-    <string name="textview">TextView</string>
+    <string name="textview" translatable="false">TextView</string>
     <string name="erro_eliminar_ficha">Erro ao eliminar Ficha</string>
     <string name="ficha_eliminada_sucesso">Eliminado Com sucesso</string>
-    <string name="ficha_paciente">Ficha_Paciente</string>
+    <string name="ficha_paciente">Ficha Paciente</string>
     <string name="ficha_tecnica_covid">Ficha Tecnica Covid</string>
     <string name="erro_alterar_ficha">Erro alterar ficha</string>
     <string name="ficha_guardado_sucesso">Guardada com sucesso</string>
