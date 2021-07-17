@@ -8,7 +8,7 @@ import android.provider.BaseColumns
 class TabelaFicha(db: SQLiteDatabase) {
     private val db: SQLiteDatabase = db
     fun cria (){
-        db.execSQL("CREATE TABLE $NOME_TABELA (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT ,$CAMPO_DATA  REAL NOT NULL ,$CAMPO_HORA REAL NOT NULL ,$CAMPO_EFEITOS TEXT NOT NULL, $CAMPO_ID_VACINA INTEGER NOT NULL , $CAMPO_ID_PACIENTE INTEGER NOT NULL , FOREIGN KEY($CAMPO_ID_PACIENTE) REFERENCES ${TabelaPaciente.NOME_TABELA} , FOREIGN KEY($CAMPO_ID_VACINA) REFERENCES ${TabelaVacina.NOME_TABELA})")
+        db.execSQL("CREATE TABLE $NOME_TABELA (${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT ,$CAMPO_DATA  REAL NOT NULL ,$CAMPO_HORA REAL NOT NULL ,$CAMPO_EFEITOS TEXT NOT NULL, $CAMPO_ID_VACINA INTEGER NOT NULL , $CAMPO_ID_PACIENTE INTEGER NOT NULL , FOREIGN KEY($CAMPO_ID_PACIENTE) REFERENCES ${TabelaPaciente.NOME_PACIENTE} , FOREIGN KEY($CAMPO_ID_VACINA) REFERENCES ${TabelaVacina.NOME_TABELA})")
     }
 
     /* $CAMPO_ID_VACINA INTEGER NOT NULL , FOREIGN KEY($CAMPO_ID_VACINA) REFERENCES ${TabelaVacina.NOME_TABELA}) */
@@ -80,7 +80,7 @@ class TabelaFicha(db: SQLiteDatabase) {
             }
         }
         */
-        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_PACIENTE ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_VACINA "
+        val tabelas = "$NOME_TABELA INNER JOIN ${TabelaPaciente.NOME_TABELA} ON ${TabelaPaciente.NOME_TABELA}.${BaseColumns._ID}=$CAMPO_ID_PACIENTE ON ${TabelaPaciente.NOME_PACIENTE}.${BaseColumns._ID}=$CAMPO_ID_VACINA "
 
         var sql = "SELECT $colunas FROM $tabelas"
 

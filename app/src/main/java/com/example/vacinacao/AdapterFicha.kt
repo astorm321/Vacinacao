@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+
 class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<AdapterFicha.ViewHolderFicha>() {
     public var cursor: Cursor? = null
         get() = field
@@ -22,15 +23,16 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
         private val textViewHora = itemView.findViewById<TextView>(R.id.textViewHora)
         private val textViewEfeitos = itemView.findViewById<TextView>(R.id.textViewEfeitos)
 
+
         private lateinit var ficha: Ficha
-        private lateinit var paciente: Paciente
+
         init {
             itemView.setOnClickListener(this)
         }
 
-        fun atualizaFicha(ficha: Ficha /*, paciente: Paciente*/) {
+        fun atualizaFicha(ficha: Ficha ) {
             this.ficha = ficha
-            //this.paciente = paciente
+
 
             textViewPaciente.text = ficha.idPaciente.toString()
             textViewVacina.text = ficha.nomeVacina
@@ -118,7 +120,7 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
      */
     override fun onBindViewHolder(holder: ViewHolderFicha, position: Int) {
         cursor!!.moveToPosition(position)
-        holder.atualizaFicha(Ficha.fromCursor(cursor!!)/*,Paciente.fromCursor(cursor!!)*/)
+        holder.atualizaFicha(Ficha.fromCursor(cursor!!))
 
     }
 

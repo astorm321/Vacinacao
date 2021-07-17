@@ -37,7 +37,7 @@ class TabelaPaciente (db: SQLiteDatabase) {
 
     companion object {
         const val NOME_TABELA = "Paciente"
-        const val NOME_PACIENTE ="Nome_Paciente"  //falta o nome
+        const val NOME_PACIENTE ="Nome_Paciente"
         const val CAMPO_MORADA ="Morada"
         const val CAMPO_CONTACTO ="Contacto"
         const val CAMPO_NR_UTENTE ="NrUtente"
