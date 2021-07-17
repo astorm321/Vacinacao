@@ -45,7 +45,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNomePaciente = view.findViewById(R.id.editTextNomePacient)
+        //editTextNomePaciente = view.findViewById(R.id.editTextNomePacient)
         editTextData = view.findViewById(R.id.editTextData)
         editTextHora = view.findViewById(R.id.editTextHora)
         editTextEfeitos = view.findViewById(R.id.editTextEfeitos)
@@ -57,7 +57,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         LoaderManager.getInstance(this)
             .initLoader(NovaFichaFragment.ID_LOADER_MANAGER_VACINAS, null ,this)
 
-        editTextNomePaciente.setText(DadosApp.fichaSelecionado!!.nomePaciente)
+        //editTextNomePaciente.setText(DadosApp.fichaSelecionado!!.nomePaciente)
         editTextData.setText(DadosApp.fichaSelecionado!!.data)
         editTextHora.setText(DadosApp.fichaSelecionado!!.hora)
         editTextEfeitos.setText(DadosApp.fichaSelecionado!!.efeitos)
@@ -69,12 +69,12 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun guardar() {
-        val paciente = editTextNomePaciente.text.toString()
+        /*val paciente = editTextNomePaciente.text.toString()
         if (paciente.isEmpty()) {
             editTextNomePaciente.setError(getString(R.string.preencha_nome))
             editTextNomePaciente.requestFocus()
             return
-        }
+        }*/
 
         val data = editTextData.text.toString()
         if (data.isEmpty()) {
@@ -104,7 +104,7 @@ class EditaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
 
         val ficha = DadosApp.fichaSelecionado!!
-        ficha.nomePaciente = paciente
+        //ficha.nomePaciente = paciente
         ficha.data = data
         ficha.hora = hora
         ficha.efeitos = efeitos

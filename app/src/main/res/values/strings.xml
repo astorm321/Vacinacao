@@ -73,5 +73,9 @@
     <string name="preencha_altura">Preencha Altura</string>
     <string name="preencha_peso">Preencha Peso</string>
     <string name="preencha_datanascimento">Preencha Data Nascimento</string>
+    <string name="erro_eliminar_paciente">Erro ao elminar Paciente</string>
+    <string name="paciente_eliminado_sucesso">Paciente eliminado com sucesso</string>
+    <string name="erro_alterar_paciente">Erro ao alterar paciente</string>
+
 
 </resources>

@@ -23,15 +23,16 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
         private val textViewEfeitos = itemView.findViewById<TextView>(R.id.textViewEfeitos)
 
         private lateinit var ficha: Ficha
-
+        private lateinit var paciente: Paciente
         init {
             itemView.setOnClickListener(this)
         }
 
-        fun atualizaFicha(ficha: Ficha) {
+        fun atualizaFicha(ficha: Ficha /*, paciente: Paciente*/) {
             this.ficha = ficha
+            //this.paciente = paciente
 
-            textViewPaciente.text = ficha.nomePaciente
+            textViewPaciente.text = ficha.idPaciente.toString()
             textViewVacina.text = ficha.nomeVacina
             textViewData.text = ficha.data
             textViewHora.text = ficha.hora
@@ -117,7 +118,8 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
      */
     override fun onBindViewHolder(holder: ViewHolderFicha, position: Int) {
         cursor!!.moveToPosition(position)
-        holder.atualizaFicha(Ficha.fromCursor(cursor!!))
+        holder.atualizaFicha(Ficha.fromCursor(cursor!!)/*,Paciente.fromCursor(cursor!!)*/)
+
     }
 
     /**

@@ -25,7 +25,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
     private var _binding: FragmentNovaFichaBinding? = null
 
-    private lateinit var editTextNomePaciente: EditText
+    //private lateinit var editTextNomePaciente: EditText
     private lateinit var editTextData: EditText
     private lateinit var editTextHora: EditText
     private lateinit var editTextEfeitos: EditText
@@ -50,7 +50,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextNomePaciente = view.findViewById(R.id.editTextNomePacient)
+       // editTextNomePaciente = view.findViewById(R.id.editTextNomePacient)
         editTextData = view.findViewById(R.id.editTextData)
         editTextHora = view.findViewById(R.id.editTextHora)
         editTextEfeitos = view.findViewById(R.id.editTextEfeitos)
@@ -73,12 +73,12 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     fun guardar() {
-        val nomePaciente = editTextNomePaciente.text.toString()
+        /*val nomePaciente = editTextNomePaciente.text.toString()
         if (nomePaciente.isEmpty()) {
             editTextNomePaciente.setError(getString(R.string.preencha_nome))
             editTextNomePaciente.requestFocus()
             return
-        }
+        }*/
 
         val data = editTextData.text.toString()
         if (data.isEmpty()) {
@@ -106,7 +106,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         val idVacina = spinnerVacinas.selectedItemId
 
-        val ficha = Ficha(nomePaciente = nomePaciente, data = data, hora = hora , efeitos = efeitos, idVacina = idVacina , idPaciente = idPaciente )
+        val ficha = Ficha(/*nomePaciente = nomePaciente,*/ data = data, hora = hora , efeitos = efeitos, idVacina = idVacina , idPaciente = idPaciente )
 
         val uri = activity?.contentResolver?.insert(
             ContentProviderVacinacao.ENDERECO_FICHAS,
@@ -115,7 +115,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
 
         if (uri == null) {
             Snackbar.make(
-                editTextNomePaciente,
+                editTextData,
                 getString(R.string.erro_inserir_ficha),
                 Snackbar.LENGTH_LONG
             ).show()
