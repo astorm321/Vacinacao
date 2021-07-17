@@ -259,7 +259,7 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private fun atualizaSpinnerID(data: Cursor?) {
         spinnerID.adapter = SimpleCursorAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_2,
+            android.R.layout.simple_list_item_1,
             data,
             arrayOf(TabelaPaciente.NOME_PACIENTE),
             intArrayOf(android.R.id.text1),

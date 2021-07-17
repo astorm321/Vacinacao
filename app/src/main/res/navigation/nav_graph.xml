@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_ListaPacienteFragment"
             app:destination="@id/listaPacienteFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_ListaVacinaFragment"
+            app:destination="@id/listaVacinaFragment" />
 
     </fragment>
     <fragment
@@ -126,5 +129,32 @@
             android:id="@+id/action_eliminaPacienteFragment_to_listaPacienteFragment"
             app:destination="@id/listaPacienteFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/listaVacinaFragment"
+        android:name="com.example.vacinacao.ListaVacinaFragment"
+        android:label="@string/fragment_lista_vacina"
+        tools:layout="@layout/fragment_lista_vacina">
+
+        <action
+            android:id="@+id/action_listaVacinaFragment_to_novaVacinaFragment"
+            app:destination="@id/novaVacinaFragment" />
+
+        <action
+            android:id="@+id/action_listaVacinaFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/novaVacinaFragment"
+        android:name="com.example.vacinacao.NovaVacinaFragment"
+        android:label="@string/fragment_nova_vacina"
+        tools:layout="@layout/fragment_nova_vacina">
+
+        <action
+            android:id="@+id/action_novaVacinaFragment_to_listaVacinaFragment"
+            app:destination="@id/listaVacinaFragment" />
+    </fragment>
+
 
 </navigation>

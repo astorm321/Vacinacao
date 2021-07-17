@@ -76,6 +76,14 @@
     <string name="erro_eliminar_paciente">Erro ao elminar Paciente</string>
     <string name="paciente_eliminado_sucesso">Paciente eliminado com sucesso</string>
     <string name="erro_alterar_paciente">Erro ao alterar paciente</string>
-
-
+    <string name="nova_vacina">nova_vacina</string>
+    <string name="fragment_nova_vacina">nova_vacina</string>
+    <string name="fragment_lista_vacina">Lista Vacinas</string>
+    <string name="preencha_fabricante">Preencha Fabricante</string>
+    <string name="preencha_Validade">Preencha Validade</string>
+    <string name="preencha_dose">Preencha Dose</string>
+    <string name="erro_inserir_vacina">Erro inserir Vacina</string>
+    <string name="vacina_guardado_sucesso">Vacina Guardada com Sucesso</string>
+    <string name="alterar_vacina">alterar_vacina</string>
+    <string name="eliminar_vacina">Eliminar Vacina</string>
 </resources>

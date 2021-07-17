@@ -9,5 +9,6 @@ class DadosApp {
 
         var fichaSelecionado : Ficha? = null
         var pacienteSelecionado: Paciente? = null
+        var vacinaSelecionado: Vacina? = null
     }
 }

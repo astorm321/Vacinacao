@@ -89,6 +89,14 @@ class MainActivity : AppCompatActivity() {
                R.menu.menu_elimina_paciente -> (DadosApp.fragment as EliminaPacienteFragment).processaOpcaoMenu(
                     item
                 )
+                R.menu.menu_lista_vacina -> (DadosApp.fragment as ListaVacinaFragment).processaOpcaoMenu(
+                    item
+                )
+                R.menu.menu_nova_vacina -> (DadosApp.fragment as NovaVacinaFragment).processaOpcaoMenu(
+                    item
+                )
+
+
 
                 else -> false
             }
@@ -111,5 +119,11 @@ class MainActivity : AppCompatActivity() {
     fun atualizaMenuListaPaciente(mostraBotoesAlterarEliminar : Boolean) {
         menu.findItem(R.id.action_alterar_paciente).setVisible(mostraBotoesAlterarEliminar)
         menu.findItem(R.id.action_eliminar_paciente).setVisible(mostraBotoesAlterarEliminar)
+    }
+
+    fun atualizaMenuListaVacina(mostraBotoesAlterarEliminar : Boolean) {
+        menu.findItem(R.id.action_alterar_vacina).setVisible(mostraBotoesAlterarEliminar)
+        menu.findItem(R.id.action_eliminar_vacina).setVisible(mostraBotoesAlterarEliminar)
+
     }
 }

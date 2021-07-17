@@ -38,6 +38,9 @@ class FirstFragment : Fragment() {
         binding.pacienteFicha.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_ListaPacienteFragment)
         }
+        binding.Vacinas.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_ListaVacinaFragment)
+        }
     }
 
 

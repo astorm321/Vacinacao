@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-
-class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<AdapterFicha.ViewHolderFicha>() {
+class AdapterVacina(val fragment: ListaVacinaFragment) : RecyclerView.Adapter<AdapterVacina.ViewHolderVacina>() {
     public var cursor: Cursor? = null
         get() = field
         set(value) {
@@ -15,30 +14,28 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
             notifyDataSetChanged()
         }
 
-    class ViewHolderFicha(itemView: View) : RecyclerView.ViewHolder(itemView),
+    class ViewHolderVacina(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
-        private val textViewPaciente = itemView.findViewById<TextView>(R.id.textViewPaciente)
-        private val textViewVacina = itemView.findViewById<TextView>(R.id.textViewVacina)
-        private val textViewData = itemView.findViewById<TextView>(R.id.textViewData1)
-        private val textViewHora = itemView.findViewById<TextView>(R.id.textViewHora)
-        private val textViewEfeitos = itemView.findViewById<TextView>(R.id.textViewEfeitos)
+        private val textViewNomeVacina = itemView.findViewById<TextView>(R.id.textViewNomeVacina)
+        private val textViewFabricante = itemView.findViewById<TextView>(R.id.textViewFabricante)
+        private val textViewValidade = itemView.findViewById<TextView>(R.id.textViewValidade)
+        private val textViewDose = itemView.findViewById<TextView>(R.id.textViewDose)
 
 
-        private lateinit var ficha: Ficha
+        private lateinit var vacina: Vacina
 
         init {
             itemView.setOnClickListener(this)
         }
 
-        fun atualizaFicha(ficha: Ficha ) {
-            this.ficha = ficha
+        fun atualizaVacina(vacina: Vacina) {
+            this.vacina = vacina
 
+            textViewNomeVacina.text = vacina.nomeVacina
+            textViewFabricante.text = vacina.fabricante
+            textViewValidade.text = vacina.validade
+            textViewDose.text = vacina.dose
 
-            textViewPaciente.text = ficha.idPaciente.toString()
-            textViewVacina.text = ficha.idVacina.toString()
-            textViewData.text = ficha.data
-            textViewHora.text = ficha.hora
-            textViewEfeitos.text = ficha.efeitos
         }
 
         /**
@@ -54,8 +51,8 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
         private fun seleciona() {
             selecionado = this
             itemView.setBackgroundResource(R.color.cor_selecao)
-            DadosApp.fichaSelecionado = ficha
-            DadosApp.activity.atualizaMenuListaFicha(true)
+            DadosApp.vacinaSelecionado = vacina
+            DadosApp.activity.atualizaMenuListaVacina(true)
         }
 
         private fun desSeleciona() {
@@ -64,7 +61,7 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
         }
 
         companion object {
-            var selecionado: ViewHolderFicha? = null
+            var selecionado: ViewHolderVacina? = null
         }
     }
 
@@ -91,10 +88,10 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
      * @see .getItemViewType
      * @see .onBindViewHolder
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderFicha {
-        val itemFicha = fragment.layoutInflater.inflate(R.layout.item_ficha, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderVacina {
+        val itemVacina = fragment.layoutInflater.inflate(R.layout.item_vacina, parent, false)
 
-        return ViewHolderFicha(itemFicha)
+        return ViewHolderVacina(itemVacina)
     }
 
     /**
@@ -118,10 +115,9 @@ class AdapterFicha(val fragment: ListaFichaFragment) : RecyclerView.Adapter<Adap
      * item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
      */
-    override fun onBindViewHolder(holder: ViewHolderFicha, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolderVacina, position: Int) {
         cursor!!.moveToPosition(position)
-        holder.atualizaFicha(Ficha.fromCursor(cursor!!))
-
+        holder.atualizaVacina(Vacina.fromCursor(cursor!!))
     }
 
     /**
