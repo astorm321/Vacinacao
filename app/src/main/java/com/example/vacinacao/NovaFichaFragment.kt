@@ -222,9 +222,9 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
        if(id == ID_LOADER_MANAGER_FICHAS) {
            atualizaSpinnerVacinas(data)
-       }else {
+      }else {
            atualizaSpinnerID(data)
-       }
+      }
     }
 
     /**
@@ -248,10 +248,10 @@ class NovaFichaFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private fun atualizaSpinnerVacinas(data: Cursor?) {
         spinnerVacinas.adapter = SimpleCursorAdapter(
             requireContext(),
-            android.R.layout.simple_list_item_2,
+            android.R.layout.simple_list_item_1,
             data,
             arrayOf(TabelaVacina.CAMPO_NOME_VACINA),
-            intArrayOf(android.R.id.text2),
+            intArrayOf(android.R.id.text1),
             0
         )
     }
